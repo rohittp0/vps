@@ -5,6 +5,7 @@ module.exports = {
         hot: true,
         open: false,
         port: 3000,
-        historyApiFallback: true
+        historyApiFallback: true,
+        host: "0.0.0.0"
     }
 };
