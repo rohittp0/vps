@@ -67,7 +67,7 @@ module.exports = (env) => ({
     },
     output: {
         path: buildFolder,
-        publicPath: "/",
+        publicPath: "./",
         filename: "[name].js",
     },
     experiments: {

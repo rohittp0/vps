@@ -3,6 +3,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 const {InjectManifest} = require("workbox-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const path = require("path");
 
 module.exports = {
     mode: "production",
@@ -32,15 +33,12 @@ module.exports = {
         }),
         new CopyPlugin({
             patterns: [
-                {from: path.resolve(__dirname, "..", "public/robots.txt")},
-                {
-                    from: path.resolve(__dirname, "..", "public/.well-known/"),
-                    to: path.resolve(buildFolder, ".well-known")
-                }
+                {from: path.resolve(__dirname, "..", "public/robots.txt")}
             ]
         }),
         new InjectManifest({
             swSrc: path.resolve(__dirname, "..", "src/sw.ts"),
+            publicPath: "./",
             exclude: [/\.map$/, /^manifest.*\.js(?:on)?$/, /\.(jpe?g|png|webp)$/i]
         })
     ]
