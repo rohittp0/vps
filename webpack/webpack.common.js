@@ -70,20 +70,11 @@ module.exports = (env) => ({
         publicPath: "./",
         filename: "[name].js",
     },
-    experiments: {
-        topLevelAwait: true
-    },
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, "..", "public/index.html"),
             title: "Need Medi",
             favicon: path.resolve(__dirname, "..", "public/favicon.ico"),
-        }),
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, "..", "public/fallbacks/offline.html"),
-            filename: "offline.html",
-            title: "Offline",
-            inject: false
         }),
         new Dotenv({path: path.resolve(__dirname, "..", `./.${env}.env`)})
     ],
